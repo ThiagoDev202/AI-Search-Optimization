@@ -3,7 +3,7 @@ Trabalho AV1 IA - Busca/Otimização Meta-heurística
 Universidade de Fortaleza
 
 Trabalho realizado pelos alunos:
-Thiago Fernandes de Freitas - 2111100 /n 
+Thiago Fernandes de Freitas - 2111100//  
 João Lucas Silva Holanda - 2125355
 
 Professor/Orientador:
