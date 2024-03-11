@@ -14,10 +14,9 @@ https://drive.google.com/file/d/1f5b1v3gUsBG26Ymmu4n5RP_5LQxuZ1Vi/view?usp=shari
 
 
 Tecnologias utilizadas:   
-Python
+Python// 
 numpy
-matplotlib
-Axes3D
+
 
 
 1) Problema de Minimiza¸c˜ao/Maximiza¸c˜ao de fun¸c˜ao Custo/Objetivo
