@@ -1,5 +1,5 @@
 # av1-inteligencia-artificial
-Trabalho AV1 IA - Busca/Otimização Meta-heurística
+Trabalho AV1 IA - Busca/Otimização Meta-heurística    
 Universidade de Fortaleza
 
 Trabalho realizado pelos alunos:   
