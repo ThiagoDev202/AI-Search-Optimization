@@ -12,3 +12,17 @@ Paulo Cirillo
 Problemática:   
 https://drive.google.com/file/d/1f5b1v3gUsBG26Ymmu4n5RP_5LQxuZ1Vi/view?usp=sharing
 
+
+Tecnologias utilizadas:// 
+Python
+numpy
+matplotlib
+Axes3D
+
+
+1) Problema de Minimiza¸c˜ao/Maximiza¸c˜ao de fun¸c˜ao Custo/Objetivo
+
+Primeira Seção:
+- Hill Climbing (Subida de Encosta)
+- Busca Local Aleat´oria (Local Random Search - LRS
+- Busca Aleat´oria Global (Global Random Search - GRS),
