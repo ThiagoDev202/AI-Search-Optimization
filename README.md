@@ -23,7 +23,7 @@ numpy
 
 
 
-1) Problema de Minimiza¸c˜ao/Maximiza¸c˜ao de fun¸c˜ao Custo/Objetivo
+1) Problema de Minimização/Maximização de função Custo/Objetivo
 
 Primeira Seção:
 - Hill Climbing (Subida de Encosta)
