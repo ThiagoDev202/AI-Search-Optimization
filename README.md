@@ -23,8 +23,9 @@ numpy
 
 
 
-1. Problema de Minimização/Maximização de função Custo/Objetivo    
-Primeira Seção//      Algoritmos utilizados:
+1. Primeira Seção
+   Problema de Minimização/Maximização de função Custo/Objetivo    
+Algoritmos utilizados:
 - Hill Climbing (Subida de Encosta),
 - Busca Local Aleat´oria (Local Random Search - LRS,
 - Busca Aleat´oria Global (Global Random Search - GRS).
