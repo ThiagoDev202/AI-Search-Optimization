@@ -23,7 +23,7 @@ numpy
 
 
 
-1. Problema de Minimização/Maximização de função Custo/Objetivo
+1. Problema de Minimização/Maximização de função Custo/Objetivo    
 Primeira Seção - Algoritmos utilizados:
 - Hill Climbing (Subida de Encosta),
 - Busca Local Aleat´oria (Local Random Search - LRS,
