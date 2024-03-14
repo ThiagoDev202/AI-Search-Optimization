@@ -63,10 +63,8 @@ def calcular_moda(lista_valores):
 
 moda_x1 = calcular_moda(solucoes_x1)
 moda_x2 = calcular_moda(solucoes_x2)
-
-# Imprimo a moda das solucoes
-print("Moda das posições ótimas para x1:", moda_x1)
-print("Moda das posições ótimas para x2:", moda_x2)
+print(moda_x1)
+print(moda_x2)
 
 # Crio o grafico da funcao objetivo
 x = np.linspace(-100, 100, 1000)
@@ -83,7 +81,6 @@ ax.scatter(solucoes_x1[-1], solucoes_x2[-1], valor_otimo, color='r', s=50, label
 ax.set_xlabel('x')
 ax.set_ylabel('y')
 ax.set_zlabel('f(x, y)')
-ax.set_title('Gráfico da Função Objetivo com a Melhor Solução')
 ax.legend()
 plt.show()
 
