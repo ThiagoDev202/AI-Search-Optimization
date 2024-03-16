@@ -29,5 +29,5 @@ numpy
 Algoritmos utilizados:
 
 - Hill Climbing (Subida de Encosta),
-- Busca Local Aleat´oria (Local Random Search - LRS,
-- Busca Aleat´oria Global (Global Random Search - GRS).
+- Busca Local Aleatória (Local Random Search - LRS,
+- Busca Aleatória Global (Global Random Search - GRS).
