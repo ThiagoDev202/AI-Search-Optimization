@@ -5,11 +5,11 @@ import matplotlib.pyplot as plt
 from mpl_toolkits.mplot3d import Axes3D
 
 # Definindo a nova funcao objetivo de maximizacao
-def nova_funcao_objetivo(x1, x2):
+def funcao_objetivo(x1, x2):
     return np.exp(-(x1**2 + x2**2)) + 2 * np.exp(-((x1 - 1.7)**2 + (x2 - 2.2)**2))
 
 # Implementacao do algoritmo Local Random Search (LRS) de maximizacao
-def busca_local_aleatoria_max(funcao_objetivo, dominio_x1, dominio_x2, total_iteracoes):
+def busca_local_aleatoria(funcao_objetivo, dominio_x1, dominio_x2, total_iteracoes):
     melhor_posicao = None
     melhor_valor = -np.inf  # Inicia com infinito negativo para maximizacao
 
@@ -34,7 +34,7 @@ solucoes = []
 
 # Execucao do LRS para maximizacao
 for _ in range(rodadas):
-    posicao_otima, valor_otimo = busca_local_aleatoria_max(nova_funcao_objetivo, dominio_x1, dominio_x2, total_iteracoes)
+    posicao_otima, valor_otimo = busca_local_aleatoria(funcao_objetivo, dominio_x1, dominio_x2, total_iteracoes)
     solucoes.append(posicao_otima)
 
 # Calculo da moda para as solucoes otimas
@@ -53,15 +53,14 @@ print(moda_x2)
 x = np.linspace(dominio_x1[0], dominio_x1[1], 400)
 y = np.linspace(dominio_x2[0], dominio_x2[1], 400)
 X, Y = np.meshgrid(x, y)
-Z = nova_funcao_objetivo(X, Y)
+Z = funcao_objetivo(X, Y)
 
 fig = plt.figure()
 ax = fig.add_subplot(111, projection='3d')
 ax.plot_surface(X, Y, Z, cmap='jet', edgecolor='none', alpha=0.7)
-ax.scatter(moda_x1, moda_x2, nova_funcao_objetivo(moda_x1, moda_x2), color='r', s=50, label='Moda das Solucoes')
+ax.scatter(moda_x1, moda_x2, funcao_objetivo(moda_x1, moda_x2), color='r', s=50, label='Moda das Solucoes')
 ax.set_xlabel('X1')
 ax.set_ylabel('X2')
-ax.set_zlabel('Funcao Objetivo')
 ax.legend()
 plt.tight_layout()
 plt.show()

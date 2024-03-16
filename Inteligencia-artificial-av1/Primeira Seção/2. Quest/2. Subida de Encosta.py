@@ -1,63 +1,59 @@
+# – Trabalho AV1 - Busca/Otimização Meta-heurística -
+
 import numpy as np
 import matplotlib.pyplot as plt
 from mpl_toolkits.mplot3d import Axes3D
 
-# Definindo a nova funcao objetivo para maximizacao 
+# Definicao da funcao objetivo
 def funcao_objetivo(x1, x2):
     return np.exp(-(x1**2 + x2**2)) + 2 * np.exp(-((x1 - 1.7)**2 + (x2 - 2.2)**2))
 
-# Estou procurando por valores de x1 e x2 que resultem no maior valor possivel da funcao objetivo
-def busca_local_aleatoria_q2(funcao_obj, dominio_x1, dominio_x2, iteracoes):
-    melhor_ponto = None
-    melhor_valor = -np.inf  # Para maximizacao
+# Algoritmo de subida de encosta para maximizacao
+def subida_encosta(funcao_objetivo, dominio_x1, dominio_x2, total_iteracoes, epsilon):
+    # Gera um ponto inicial aleatorio dentro do dominio
+    x1, x2 = np.random.uniform(dominio_x1[0], dominio_x1[1]), np.random.uniform(dominio_x2[0], dominio_x2[1])
+    valor_atual = funcao_objetivo(x1, x2)
     
-    for _ in range(iteracoes):
-        x1, x2 = np.random.uniform(dominio_x1[0], dominio_x1[1]), np.random.uniform(dominio_x2[0], dominio_x2[1])
-        valor_atual = funcao_obj(x1, x2)
-        if valor_atual > melhor_valor:
-            melhor_ponto = (x1, x2)
-            melhor_valor = valor_atual
+    for _ in range(total_iteracoes):
+        # Gera um novo ponto candidato proximo ao atual
+        candidato_x1 = x1 + np.random.uniform(-epsilon, epsilon)
+        candidato_x2 = x2 + np.random.uniform(-epsilon, epsilon)
+        # Mantem os candidatos dentro dos limites do dominio
+        candidato_x1 = np.clip(candidato_x1, dominio_x1[0], dominio_x1[1])
+        candidato_x2 = np.clip(candidato_x2, dominio_x2[0], dominio_x2[1])
+        valor_candidato = funcao_objetivo(candidato_x1, candidato_x2)
+        
+        # Se o valor do candidato for melhor
+        if valor_candidato > valor_atual:
+            # Atualizo o ponto otimo
+            x1, x2, valor_atual = candidato_x1, candidato_x2, valor_candidato
+        else:
+            # Reduz o epsilon
+            epsilon *= 0.99
+    
+    return (x1, x2), valor_atual
 
-    return melhor_ponto, melhor_valor
-
-# Parametros do algoritmo para a funcao da 
+# Parametros da questao
 dominio_x1 = (-2, 4)
 dominio_x2 = (-2, 5)
-iteracoes_q2 = 1000
-rodadas_q2 = 100
-resultados = []
+total_iteracoes = 1000
+epsilon = 0.1  # Valor inicial para o tamanho do passo
 
-# Executando o LRS para maximizacao
-for _ in range(rodadas_q2):
-    ponto_otimo, valor_otimo = busca_local_aleatoria_q2(funcao_objetivo, dominio_x1, dominio_x2, iteracoes_q2)
-    resultados.append(ponto_otimo)
+# Executa o algoritmo de subida de encosta
+(posicao_otima, valor_otimo) = subida_encosta(funcao_objetivo, dominio_x1, dominio_x2, total_iteracoes, epsilon)
 
-# Calculando a moda das posições ótimas encontradas
-def calcular_moda_q2(valores):
-    valores, contagens = np.unique(valores, return_counts=True)
-    indice_moda = np.argmax(contagens)
-    return valores[indice_moda]
-
-valores_x1 = [pos[0] for pos in resultados]
-valores_x2 = [pos[1] for pos in resultados]
-moda_x1 = calcular_moda_q2(valores_x1)
-moda_x2 = calcular_moda_q2(valores_x2)
-
-# Gerando o gráfico da funcao objetivo com a melhor solucao
-x = np.linspace(dominio_x1[0], dominio_x1[1], 400)
-y = np.linspace(dominio_x2[0], dominio_x2[1], 400)
+# Grafico da funcao objetivo
+x = np.linspace(-2, 4, 100)
+y = np.linspace(-2, 5, 100)
 X, Y = np.meshgrid(x, y)
 Z = funcao_objetivo(X, Y)
 
-# Criando o grafico
 fig = plt.figure()
 ax = fig.add_subplot(111, projection='3d')
-surf = ax.plot_surface(X, Y, Z, cmap='jet', edgecolor='none', alpha=0.8)
-# Add a moda das solucoes no grafico, via funcao de x1 e x2
-ax.scatter(moda_x1, moda_x2, funcao_objetivo(moda_x1, moda_x2), color='r', s=50, label='Moda das Soluções')
+ax.plot_surface(X, Y, Z, rstride=1, cstride=1, cmap='jet', edgecolor='none', alpha=0.8)
+ax.scatter(posicao_otima[0], posicao_otima[1], valor_otimo, color='r', s=50, label='Melhor Solucao')
 ax.set_xlabel('x1')
 ax.set_ylabel('x2')
 ax.set_zlabel('f(x1, x2)')
 ax.legend()
-plt.tight_layout()
 plt.show()
