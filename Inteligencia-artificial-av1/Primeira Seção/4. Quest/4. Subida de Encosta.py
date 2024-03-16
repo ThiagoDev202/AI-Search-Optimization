@@ -15,7 +15,7 @@ def hill_climbing(funcao_objetivo, dominio_x1, dominio_x2, max_iteracoes, passo)
     for _ in range(max_iteracoes):
         mov_x1, mov_x2 = np.random.uniform(-passo, passo), np.random.uniform(-passo, passo)
         novo_x1, novo_x2 = x1 + mov_x1, x2 + mov_x2
-        # Mantém dentro dos limites do domínio
+        
         novo_x1 = max(min(novo_x1, dominio_x1[1]), dominio_x1[0])
         novo_x2 = max(min(novo_x2, dominio_x2[1]), dominio_x2[0])
         novo_valor = funcao_objetivo(novo_x1, novo_x2)
