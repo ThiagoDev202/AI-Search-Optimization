@@ -5,11 +5,11 @@ import numpy as np
 import matplotlib.pyplot as plt
 from mpl_toolkits.mplot3d import Axes3D
 
-# Função objetivo
+# Funcao objetivo
 def funcao_objetivo(x1, x2):
     return x1 * np.sin(4 * np.pi * x1) - x2 * np.sin(4 * np.pi * x2 + np.pi) + 1
 
-# Algoritmo de subida de encosta para maximização
+# Algoritmo de subida de encosta para maximizacao
 def subida_encosta(funcao_objetivo, dominio_x1, dominio_x2, total_iteracoes, passo):
     x1 = np.random.uniform(dominio_x1[0], dominio_x1[1])
     x2 = np.random.uniform(dominio_x2[0], dominio_x2[1])
@@ -25,18 +25,18 @@ def subida_encosta(funcao_objetivo, dominio_x1, dominio_x2, total_iteracoes, pas
 
     return (x1, x2), valor_otimo
 
-# Parâmetros do algoritmo
+# Parametros do algoritmo
 dominio_x1 = (-1, 1)
 dominio_x2 = (-1, 1)
 total_iteracoes = 1000
 passo = 0.05  # Tamanho do passo para gerar novos pontos candidatos
 
-# Execução do algoritmo
+# Execucao do algoritmo
 (ponto_otimo, valor_otimo) = subida_encosta(funcao_objetivo, dominio_x1, dominio_x2, total_iteracoes, passo)
 print("Ponto ótimo:", ponto_otimo)
 print("Valor ótimo:", valor_otimo)
 
-# Criação do gráfico 3D
+# Criacao do grafico 3D
 x = np.linspace(dominio_x1[0], dominio_x1[1], 400)
 y = np.linspace(dominio_x2[0], dominio_x2[1], 400)
 X, Y = np.meshgrid(x, y)
