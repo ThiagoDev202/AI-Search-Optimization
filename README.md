@@ -31,3 +31,11 @@ Algoritmos utilizados:
 - Hill Climbing (Subida de Encosta),
 - Busca Local Aleatória (Local Random Search - LRS,
 - Busca Aleatória Global (Global Random Search - GRS).
+
+
+
+2. Segunda Seção - Problema de domínio discreto
+
+
+Algoritmo utilizado:
+- Tempera simulada - 8 rainhas
