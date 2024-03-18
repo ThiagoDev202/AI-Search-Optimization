@@ -84,7 +84,6 @@ plt.xlabel('Iteracaes')
 plt.ylabel('Numero de ataques')
 plt.show()
 
-# Impressao do resultado
 print(f"Solucaes unicas encontradas: {len(solucoes_encontradas)} / {solucoes_desejadas}")
 print(f"Iteracaes totais realizadas: {iteracoes_totais}")
 
