@@ -8,7 +8,7 @@ Paulo Cirillo
 
 
 Trabalho realizado por:   
-Thiago Fernandes de Freitas<br >  
+Thiago Fernandes de Freitas<br>  
 João Lucas Silva Holanda
 
 
