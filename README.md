@@ -8,8 +8,8 @@ Paulo Cirillo
 
 
 Trabalho realizado por:   
-Thiago Fernandes de Freitas - 2111100   
-João Lucas Silva Holanda - 2125355
+Thiago Fernandes de Freitas 
+João Lucas Silva Holanda
 
 
 
